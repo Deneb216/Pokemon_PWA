@@ -1,4 +1,4 @@
-const CACHE_NAME = "pokedex-static-v4"; // Sube la versión para actualizar
+const CACHE_NAME = "pokedex-static-v5"; // ¡Sube este número!
 const DYNAMIC_CACHE = "pokedex-dynamic-v1"; // <--- ¡ESTA ES LA LÍNEA QUE TE FALTA!
 
 const assets = [
