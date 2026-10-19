@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex PWA</title>
+    <link rel="stylesheet" href="./Css/style.css">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#ef5350">
+    <link rel="icon" type="image/png" href="./Images/icons/icon-72x72.png">
+</head>
+<body>
+    <header>
+        <h1>Pokédex PWA</h1>
+        <div class="controles">
+            <input type="text" id="buscador" placeholder="Buscar Pokémon...">
+            <select id="ordenar">
+                <option value="numero">N° Pokédex (1 - 151)</option>
+                <option value="alfabetico">Orden Alfabético (A - Z)</option>
+                <option value="tipo">Ordenar por Tipo</option>
+            </select>
+        </div>
+    </header>
+    <main>
+        <div class="pokemon-container" id="pokemonContainer"></div>
+    </main>
+    <script src="./Js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "Pokédex PWA",
+  "short_name": "Pokemones",
+  "scope": "/Pokemon_PWA/",
+  "start_url": "/Pokemon_PWA/index.html",
+  "display": "standalone",
+  "background_color": "#f5f5f5",
+  "theme_color": "#ef5350",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./Images/icons/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./Images/icons/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
