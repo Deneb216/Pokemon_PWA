@@ -76,3 +76,45 @@ const aplicarOrden = (arreglo, criterio) => {
 };
 
 fetchPokemones();
+
+// ==========================================
+// LÓGICA DE INSTALACIÓN DE LA PWA
+// ==========================================
+let eventoInstalacion;
+const btnInstalar = document.getElementById('btnInstalar');
+
+// 1. Escuchar si el navegador permite instalar la app
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevenir que el navegador muestre su propio cuadro de diálogo automático
+    e.preventDefault();
+    // Guardar el evento para usarlo cuando el usuario presione nuestro botón
+    eventoInstalacion = e;
+    
+    // Como ya confirmamos que se puede instalar, mostramos nuestro botón
+    btnInstalar.style.display = 'block';
+});
+
+// 2. ¿Qué pasa cuando el usuario hace clic en nuestro botón?
+btnInstalar.addEventListener('click', async () => {
+    if (!eventoInstalacion) return;
+
+    // Mostrar el cuadro de diálogo nativo de instalación
+    eventoInstalacion.prompt();
+
+    // Esperar a ver qué decide el usuario (Aceptar o Cancelar)
+    const { outcome } = await eventoInstalacion.userChoice;
+    console.log(`El usuario decidió: ${outcome}`);
+
+    // Limpiamos la variable porque el prompt solo se puede usar una vez
+    eventoInstalacion = null;
+    
+    // Ocultamos el botón para que ya no estorbe
+    btnInstalar.style.display = 'none';
+});
+
+// 3. Escuchar cuando la app se instale exitosamente (por si la instalan desde los 3 puntitos)
+window.addEventListener('appinstalled', () => {
+    console.log('¡La PWA fue instalada correctamente!');
+    // Nos aseguramos de que el botón desaparezca permanentemente
+    btnInstalar.style.display = 'none';
+});
